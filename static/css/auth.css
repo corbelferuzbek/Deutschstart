@@ -1,0 +1,247 @@
+
+:root {
+    --primary: #3568e8;
+    --primary-dark: #2453c7;
+    --text: #17233d;
+    --muted: #78849b;
+    --border: #e3e9f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text);
+    background: #f2f6ff;
+}
+
+.auth-page {
+    min-height: 100vh;
+    padding: 30px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-logo {
+    font-size: 25px;
+    font-weight: 900;
+    color: var(--primary);
+    text-decoration: none;
+    margin-bottom: 30px;
+}
+
+.auth-logo span {
+    color: #ffad35;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 1050px;
+    display: grid;
+    grid-template-columns: .8fr 1fr;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px #263d6412;
+}
+
+.auth-intro {
+    padding: 55px 40px;
+    background: linear-gradient(145deg, #2864dc, #7199f5);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth-emoji {
+    font-size: 65px;
+    margin-bottom: 25px;
+}
+
+.auth-intro h1 {
+    font-size: 34px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.auth-intro p {
+    color: #e8efff;
+    line-height: 1.7;
+}
+
+.auth-card {
+    padding: 45px;
+}
+
+.auth-card h2 {
+    font-size: 27px;
+}
+
+.auth-subtitle {
+    color: var(--muted);
+    margin: 8px 0 25px;
+    font-size: 14px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    background: #fbfcff;
+    color: var(--text);
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px #3568e817;
+}
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 90px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.auth-submit {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 11px;
+    background: var(--primary);
+    color: white;
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: .2s;
+    margin-top: 5px;
+}
+
+.auth-submit:hover {
+    background: var(--primary-dark);
+}
+
+.auth-submit:disabled {
+    opacity: .65;
+    cursor: wait;
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 23px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.auth-switch a {
+    color: var(--primary);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.auth-message {
+    display: none;
+    margin-bottom: 18px;
+    padding: 12px;
+    border-radius: 9px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.auth-message.show {
+    display: block;
+}
+
+.auth-message.error {
+    background: #fff0f0;
+    color: #c23a3a;
+}
+
+.auth-message.success {
+    background: #eaf9ef;
+    color: #247b43;
+}
+
+.auth-footer {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+@media(max-width: 760px) {
+    .auth-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+
+    .auth-intro {
+        padding: 30px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .auth-emoji {
+        font-size: 45px;
+        margin-bottom: 12px;
+    }
+
+    .auth-intro h1 {
+        font-size: 26px;
+    }
+
+    .auth-card {
+        padding: 30px 24px;
+    }
+}
+
+@media(max-width: 420px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}

@@ -1,0 +1,140 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ro‘yxatdan o‘tish — DeutschStart</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+</head>
+<body>
+
+<main class="auth-page">
+    <a href="/" class="auth-logo">Deutsch<span>Start</span></a>
+
+    <section class="auth-container">
+        <div class="auth-intro">
+            <span class="auth-emoji">🇩🇪</span>
+            <h1>Yangi bilimlar sari!</h1>
+            <p>DeutschStart platformasida o‘z hisobingizni yarating.</p>
+        </div>
+
+        <div class="auth-card">
+            <h2>Ro‘yxatdan o‘tish</h2>
+            <p class="auth-subtitle">Ma’lumotlaringizni kiriting</p>
+
+            <div id="message" class="auth-message" role="alert"></div>
+
+            <form id="registerForm">
+                {% csrf_token %}
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first_name">Ism</label>
+                        <input
+                            type="text"
+                            id="first_name"
+                            name="first_name"
+                            placeholder="Ismingiz"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last_name">Familiya</label>
+                        <input
+                            type="text"
+                            id="last_name"
+                            name="last_name"
+                            placeholder="Familiyangiz"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Foydalanuvchi nomi</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="username"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@email.com"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="grade">Sinfingiz</label>
+                    <select id="grade" name="grade" required>
+                        <option value="">Sinfni tanlang</option>
+                        <option value="2">2-sinf</option>
+                        <option value="3">3-sinf</option>
+                        <option value="4">4-sinf</option>
+                        <option value="5">5-sinf</option>
+                        <option value="6">6-sinf</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Parol</label>
+                    <div class="password-field">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Kamida 8 ta belgi"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+                        <button type="button" class="password-toggle"
+                                data-target="password">Ko‘rsatish</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm_password">Parolni tasdiqlash</label>
+                    <div class="password-field">
+                        <input
+                            type="password"
+                            id="confirm_password"
+                            name="confirm_password"
+                            placeholder="Parolni qayta kiriting"
+                            autocomplete="new-password"
+                            required
+                        >
+                        <button type="button" class="password-toggle"
+                                data-target="confirm_password">Ko‘rsatish</button>
+                    </div>
+                </div>
+
+                <button type="submit" id="submitButton" class="auth-submit">
+                    Hisob yaratish
+                </button>
+            </form>
+
+            <p class="auth-switch">
+                Hisobingiz bormi?
+                <a href="/api/accounts/page/login/">Kirish</a>
+            </p>
+        </div>
+    </section>
+
+    <p class="auth-footer">DeutschStart · Nemis tilini o‘rganish platformasi</p>
+</main>
+
+<script src="{% static 'js/auth.js' %}" defer></script>
+</body>
+</html>

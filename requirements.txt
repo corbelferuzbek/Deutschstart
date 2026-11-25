@@ -1,0 +1,9 @@
+
+Django==5.2.7
+djangorestframework==3.16.1
+djangorestframework-simplejwt
+Pillow
+tzdata
+gunicorn
+psycopg[binary]
+

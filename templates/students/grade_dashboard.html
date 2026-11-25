@@ -1,0 +1,500 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f8fc">
+
+    <title>{{ grade }}-sinf | DeutschStart</title>
+
+    <link rel="stylesheet" href="{% static 'css/student.css' %}">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #f7f8fc;
+            color: #20243a;
+            font-family: Arial, sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .dashboard {
+            max-width: 1200px;
+            width: 92%;
+            margin: auto;
+        }
+
+        .student-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 22px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            background: #ff2d75;
+            color: white;
+            border-radius: 13px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .brand h2 {
+            margin: 0;
+            font-size: 21px;
+        }
+
+        .brand p {
+            margin: 4px 0 0;
+            color: #8b90a5;
+            font-size: 12px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .grade-label {
+            background: white;
+            border: 1px solid #e9eaf1;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .logout-button {
+            border: none;
+            background: #fff0f4;
+            color: #e52b69;
+            padding: 11px 17px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .logout-button:hover {
+            background: #ffe0e9;
+        }
+
+        .welcome {
+            margin-top: 20px;
+            padding: 35px;
+            border-radius: 22px;
+            background: linear-gradient(120deg, #ff2d75, #ff6599);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            overflow: hidden;
+        }
+
+        .welcome-content {
+            max-width: 650px;
+        }
+
+        .welcome-tag {
+            display: inline-block;
+            padding: 7px 12px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        .welcome h1 {
+            font-size: clamp(25px, 5vw, 38px);
+            margin: 18px 0 10px;
+        }
+
+        .welcome p {
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        .welcome-art {
+            font-size: 90px;
+            flex-shrink: 0;
+        }
+
+        .section-heading {
+            margin: 38px 0 18px;
+        }
+
+        .section-heading h2 {
+            margin: 0 0 7px;
+            font-size: 23px;
+        }
+
+        .section-heading p {
+            color: #8b90a5;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .learning-card {
+            background: white;
+            border: 1px solid #eceef4;
+            border-radius: 17px;
+            padding: 23px;
+            display: flex;
+            align-items: flex-start;
+            gap: 17px;
+            transition: 0.2s;
+        }
+
+        .learning-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(30, 35, 70, 0.07);
+        }
+
+        .card-icon {
+            width: 54px;
+            height: 54px;
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            background: #fff0f5;
+            color: #ff2d75;
+            border-radius: 14px;
+            font-size: 25px;
+        }
+
+        .learning-card h3 {
+            margin: 3px 0 9px;
+            font-size: 18px;
+        }
+
+        .learning-card p {
+            color: #85899c;
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 0 0 14px;
+        }
+
+        .card-link {
+            color: #ff2d75;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .info-panel {
+            margin: 30px 0;
+            padding: 22px;
+            background: white;
+            border: 1px solid #eceef4;
+            border-radius: 16px;
+        }
+
+        .info-panel h3 {
+            margin: 0 0 8px;
+        }
+
+        .info-panel p {
+            color: #85899c;
+            line-height: 1.6;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .dashboard-footer {
+            padding: 25px 0;
+            text-align: center;
+            color: #999daf;
+            font-size: 12px;
+        }
+
+        @media (max-width: 650px) {
+            .student-header {
+                flex-wrap: wrap;
+            }
+
+            .header-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .welcome {
+                padding: 25px;
+            }
+
+            .welcome-art {
+                display: none;
+            }
+
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .learning-card {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- HEADER -->
+        <header class="student-header">
+
+            <div class="brand">
+                <div class="brand-icon">D</div>
+
+                <div>
+                    <h2>DeutschStart</h2>
+                    <p>Nemis tilini o‘rganish platformasi</p>
+                </div>
+            </div>
+
+            <div class="header-right">
+
+                <div class="grade-label">
+                    {{ grade }}-sinf
+                </div>
+
+                <button
+                    id="logoutButton"
+                    class="logout-button"
+                    type="button">
+                    Chiqish
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME -->
+        <main>
+
+            <section class="welcome">
+
+                <div class="welcome-content">
+
+                    <span class="welcome-tag">
+                        {{ course_group }}
+                    </span>
+
+                    <h1>
+                        Xush kelibsiz, {{ student.first_name|default:student.username }}!
+                    </h1>
+
+                    <p>
+                        DeutschStart platformasida nemis tilini
+                        qiziqarli darslar, interaktiv o‘yinlar va
+                        testlar orqali o‘rganishni boshlang.
+                    </p>
+
+                </div>
+
+                <div class="welcome-art" aria-hidden="true">
+                    🇩🇪
+                </div>
+
+            </section>
+
+
+            <!-- LEARNING SECTION -->
+            <section>
+
+                <div class="section-heading">
+                    <h2>O‘quv markazi</h2>
+                    <p>O‘rganishni istagan bo‘limingizni tanlang.</p>
+                </div>
+
+                <div class="learning-grid">
+
+                    <!-- LESSONS -->
+                    <a href="#" class="learning-card">
+
+                        <div class="card-icon">📚</div>
+
+                        <div>
+                            <h3>Darslar</h3>
+
+                            <p>
+                                Nemis tili mavzularini bosqichma-bosqich
+                                o‘rganing.
+                            </p>
+
+                            <span class="card-link">
+                                Darslarni ko‘rish →
+                            </span>
+                        </div>
+
+                    </a>
+
+
+                    <!-- VOCABULARY -->
+                    <a href="#" class="learning-card">
+
+                        <div class="card-icon">🔤</div>
+
+                        <div>
+                            <h3>Smart Vocabulary</h3>
+
+                            <p>
+                                Nemischa so‘zlar, artikllar va
+                                o‘zbekcha tarjimalarni o‘rganing.
+                            </p>
+
+                            <span class="card-link">
+                                Lug‘atni ochish →
+                            </span>
+                        </div>
+
+                    </a>
+
+
+                    <!-- GAMES -->
+                    <a href="#" class="learning-card">
+
+                        <div class="card-icon">🎮</div>
+
+                        <div>
+                            <h3>O‘yinlar</h3>
+
+                            <p>
+                                So‘zlarni topish, moslashtirish va
+                                boshqa interaktiv mashqlar.
+                            </p>
+
+                            <span class="card-link">
+                                O‘ynash →
+                            </span>
+                        </div>
+
+                    </a>
+
+
+                    <!-- TESTS -->
+                    <a href="#" class="learning-card">
+
+                        <div class="card-icon">📝</div>
+
+                        <div>
+                            <h3>Smart Test</h3>
+
+                            <p>
+                                Bilimingizni tekshiring va natijalaringizni
+                                kuzatib boring.
+                            </p>
+
+                            <span class="card-link">
+                                Testni boshlash →
+                            </span>
+                        </div>
+
+                    </a>
+
+
+                    <!-- LISTENING -->
+                    <a href="#" class="learning-card">
+
+                        <div class="card-icon">🎧</div>
+
+                        <div>
+                            <h3>Hören und Sprechen</h3>
+
+                            <p>
+                                Nemischa audio materiallarni tinglang
+                                va talaffuzni mashq qiling.
+                            </p>
+
+                            <span class="card-link">
+                                Mashq qilish →
+                            </span>
+                        </div>
+
+                    </a>
+
+
+                    <!-- RESULTS -->
+                    <a href="#" class="learning-card">
+
+                        <div class="card-icon">📊</div>
+
+                        <div>
+                            <h3>Mening natijalarim</h3>
+
+                            <p>
+                                Testlar va mashqlardagi natijalaringizni
+                                kuzatib boring.
+                            </p>
+
+                            <span class="card-link">
+                                Natijalarni ko‘rish →
+                            </span>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- INFORMATION -->
+            <section class="info-panel">
+
+                <h3>Bugungi maqsad</h3>
+
+                <p>
+                    Har kuni yangi nemischa so‘zlarni o‘rganing,
+                    mashqlarni bajaring va bilimlaringizni
+                    mustahkamlang.
+                </p>
+
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+        <footer class="dashboard-footer">
+            © 2026 DeutschStart — Barcha huquqlar himoyalangan.
+        </footer>
+
+    </div>
+
+
+    <script src="{% static 'js/student.js' %}"></script>
+
+</body>
+</html>

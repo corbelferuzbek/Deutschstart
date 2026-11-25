@@ -1,0 +1,77 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kirish — DeutschStart</title>
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+</head>
+<body>
+
+<main class="auth-page">
+    <a href="/" class="auth-logo">Deutsch<span>Start</span></a>
+
+    <section class="auth-container login-container">
+        <div class="auth-intro">
+            <span class="auth-emoji">📚</span>
+            <h1>Willkommen zurück!</h1>
+            <p>O‘qishni davom ettirish uchun hisobingizga kiring.</p>
+        </div>
+
+        <div class="auth-card">
+            <h2>Hisobga kirish</h2>
+            <p class="auth-subtitle">Login va parolingizni kiriting</p>
+
+            <div id="message" class="auth-message" role="alert"></div>
+
+            <form id="loginForm">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="username">Foydalanuvchi nomi</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Username"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Parol</label>
+                    <div class="password-field">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Parolingiz"
+                            autocomplete="current-password"
+                            required
+                        >
+                        <button type="button" class="password-toggle"
+                                data-target="password">Ko‘rsatish</button>
+                    </div>
+                </div>
+
+                <button type="submit" id="submitButton" class="auth-submit">
+                    Kirish
+                </button>
+            </form>
+
+            <p class="auth-switch">
+                Hisobingiz yo‘qmi?
+                <a href="/api/accounts/page/register/">Ro‘yxatdan o‘tish</a>
+            </p>
+        </div>
+    </section>
+
+    <p class="auth-footer">DeutschStart · Nemis tilini o‘rganish platformasi</p>
+</main>
+
+<script src="{% static 'js/auth.js' %}" defer></script>
+</body>
+</html>

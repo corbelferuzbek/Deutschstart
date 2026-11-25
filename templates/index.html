@@ -1,0 +1,170 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeutschStart — bolalar uchun interaktiv nemis tili platformasi">
+    <title>DeutschStart — Nemis tilini o‘rganamiz</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+<header class="site-header">
+    <a href="/" class="logo">Deutsch<span>Start</span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Menyuni ochish">
+        ☰
+    </button>
+
+    <nav class="navigation" id="navigation">
+        <a href="#courses">Kurslar</a>
+        <a href="#features">Imkoniyatlar</a>
+        <a href="#about">Loyiha haqida</a>
+        <a href="/api/accounts/page/login/" class="nav-login">Kirish</a>
+        <a href="/api/accounts/page/register/" class="nav-register">Boshlash</a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <span class="eyebrow">DEUTSCH LERNEN MACHT SPAẞ!</span>
+            <h1>Nemis tilini <span>qiziqarli</span> tarzda o‘rganing!</h1>
+            <p>
+                O‘yinlar, interaktiv darslar, rasmlar va testlar orqali
+                nemis tilini oson va samarali o‘rganing.
+            </p>
+
+            <div class="hero-actions">
+                <a href="/api/accounts/page/register/" class="button-primary">
+                    O‘rganishni boshlash
+                </a>
+                <a href="#courses" class="button-secondary">
+                    Kurslarni ko‘rish
+                </a>
+            </div>
+
+            <div class="hero-stat">
+                <div><strong>2–6</strong><span>Sinflar</span></div>
+                <div><strong>2</strong><span>O‘quv dasturi</span></div>
+                <div><strong>∞</strong><span>Imkoniyatlar</span></div>
+            </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Nemis tilini o‘rganish">
+            <div class="visual-circle">
+                <div class="visual-book">📚</div>
+                <div class="visual-flag">🇩🇪</div>
+                <div class="visual-star">⭐</div>
+                <div class="visual-pencil">✏️</div>
+            </div>
+            <div class="floating-label">Hallo! 👋</div>
+        </div>
+    </section>
+
+    <section class="section" id="courses">
+        <div class="section-heading">
+            <span class="eyebrow">BIZNING KURSLAR</span>
+            <h2>O‘zingizga mos yo‘nalishni tanlang</h2>
+            <p>Har bir sinf uchun maxsus tayyorlangan o‘quv dasturlari.</p>
+        </div>
+
+        <div class="course-grid">
+            <article class="course-card junior">
+                <div class="course-icon">🌈</div>
+                <span class="course-label">2–4-sinflar</span>
+                <h3>Junior Deutsch</h3>
+                <p>
+                    Rasmlar, ranglar, o‘yinlar va qisqa mashqlar
+                    orqali nemis tilining asoslarini o‘rganing.
+                </p>
+                <a href="/api/accounts/page/register/">Kursga qo‘shilish →</a>
+            </article>
+
+            <article class="course-card plus">
+                <div class="course-icon">🚀</div>
+                <span class="course-label">5–6-sinflar</span>
+                <h3>Deutsch Plus</h3>
+                <p>
+                    Lug‘at, grammatika, gap tuzish va matnlar
+                    yordamida bilimlaringizni rivojlantiring.
+                </p>
+                <a href="/api/accounts/page/register/">Kursga qo‘shilish →</a>
+            </article>
+        </div>
+    </section>
+
+    <section class="section features-section" id="features">
+        <div class="section-heading">
+            <span class="eyebrow">PLATFORMAMIZ</span>
+            <h2>O‘rganishning yangi usuli</h2>
+            <p>Bilim olishni qiziqarli va interaktiv jarayonga aylantiramiz.</p>
+        </div>
+
+        <div class="feature-grid">
+            <article class="feature-card">
+                <div class="feature-icon">📖</div>
+                <h3>Interaktiv darslar</h3>
+                <p>Mavzularni bosqichma-bosqich o‘rganing.</p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon">🎮</div>
+                <h3>Ta’limiy o‘yinlar</h3>
+                <p>O‘yinlar orqali yangi bilimlarni mustahkamlang.</p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon">🔤</div>
+                <h3>Smart Vocabulary</h3>
+                <p>So‘zlar, artikllar, tarjimalar va talaffuzlar.</p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon">📝</div>
+                <h3>Smart Test</h3>
+                <p>O‘z bilimingizni testlar orqali tekshiring.</p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon">🎧</div>
+                <h3>Hören und Sprechen</h3>
+                <p>Tinglash va talaffuz mashqlarini bajaring.</p>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Natijalar</h3>
+                <p>O‘zlashtirishingiz va rivojlanishingizni kuzating.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div>
+            <span class="eyebrow">DEUTSCHSTART HAQIDA</span>
+            <h2>Har bir yangi so‘z — yangi imkoniyat.</h2>
+            <p>
+                DeutschStart — 2–6-sinf o‘quvchilari uchun
+                mo‘ljallangan interaktiv nemis tili ta’lim platformasi.
+                Maqsadimiz nemis tilini o‘rganishni tushunarli,
+                qiziqarli va qulay qilish.
+            </p>
+            <a href="/api/accounts/page/register/" class="button-primary">
+                Hoziroq boshlash
+            </a>
+        </div>
+        <div class="about-visual">🇩🇪</div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <a href="/" class="logo">Deutsch<span>Start</span></a>
+    <p>© 2026 DeutschStart. Barcha huquqlar himoyalangan.</p>
+</footer>
+
+<script src="{% static 'js/main.js' %}" defer></script>
+</body>
+</html>
