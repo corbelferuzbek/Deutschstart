@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-zys$pllir-ep@z+5g%9ye8m44fd6!0y&$gp-*1pcu7-*lfj$ic
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "deutschstart.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -162,4 +166,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "https://deutschstart.onrender.com",
 ]
